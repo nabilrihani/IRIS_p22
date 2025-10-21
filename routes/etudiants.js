@@ -13,7 +13,8 @@ router.post('/ajouter', async (req, res) => {
         nom: req.body.nom,
         prenom: req.body.prenom,
         email: req.body.email,
-        age: req.body.age
+        age: req.body.age,
+        Adresse: req.body.Adresse
     });
 
     try {
@@ -52,7 +53,8 @@ router.post('/modifier/:id', async (req, res) => {
             nom: req.body.nom,
             prenom: req.body.prenom,
             email: req.body.email,
-            age: req.body.age
+            age: req.body.age,
+            Adresse: req.body.Adresse
         });
         res.redirect('/etudiants/liste');
     } catch (err) {
