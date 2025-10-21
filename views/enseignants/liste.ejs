@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des enseignants</title>
+</head>
+<body>
+    <%- include('../partials/navbar'); %>
+
+
+   
+    <!-- Affichage des etudiants dans un tableau avec les buttons : supprimer/modifier -->
+     <h1>Liste des enseignants</h1>
+<a  class="btn btn-outline-success" href="/enseignants/ajouter">Ajouter un Enseignant</a>
+
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th> 
+      <th scope="col">Prenom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Actions</th>
+    </tr>
+       <% enseignants.forEach(enseignant => { %>
+  </thead>
+  <tbody >
+    <tr>
+      <th scope="row"><%= enseignant.nom %></th>
+      <td><%= enseignant.prenom %></td>
+      <td><%= enseignant.email %></td>
+      <td><%= enseignant.age %></td>
+      <td><%= enseignant.phone %></td>
+      <td>
+        <a class="btn btn-warning" href="/enseignants/modifier/<%= enseignant._id %>">Modifier</a>
+            <form action="/enseignants/supprimer/<%= enseignant._id %>" method="POST" style="display:inline;">
+                <button class="btn btn-danger" type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ?')">Supprimer</button>
+            </form>
+        </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+</body>
+</html>

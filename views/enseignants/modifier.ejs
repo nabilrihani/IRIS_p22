@@ -1,0 +1,21 @@
+<!-- page pour modifier enseignant -->
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des enseignants</title>
+</head>
+<body>
+    <%- include('../partials/navbar'); %>
+ <h1>Modifier l'enseignant</h1>
+<form action="/enseignants/modifier/<%= enseignant._id %>" method="POST">
+    <input type="text" name="nom" value="<%= enseignant.nom %>" required>
+    <input type="text" name="prenom" value="<%= enseignant.prenom %>" required>
+    <input type="email" name="email" value="<%= enseignant.email %>" required>
+    <input type="number" name="age" value="<%= enseignant.age %>" required>
+    <input type="text" name="phone" value="<%= enseignant.phone %>" required>
+    <button type="submit">Modifier</button>
+</form>
+<a href="/enseigants/liste">Retour à la liste</a>
+</body>
+</html>
